@@ -7,6 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## About This Repository
+This repository is a starting template for admin panel using [Stisla template](https://github.com/stisla/stisla), [Vue.js](https://vuejs.org/) and[ Inertia.js](https://inertiajs.com/) for frontend tools and using [Laravel framework](https://laravel.com) for backend.
+
+To install this repository in your local machine after cloning finished, please run these following commands:
+- composer install
+- npm install
+- npm run dev
+
+## Requirements
+- PHP ^8.0.2
+- Laravel Framework ^9.19
+- Node js node-v^14
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
