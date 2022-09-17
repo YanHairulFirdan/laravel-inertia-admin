@@ -1,12 +1,10 @@
 <template>
   <ul class="sidebar-menu">
-    <li class="menu-header">Dashboard</li>
-    <li class="nav-item dropdown active">
-      <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-      <ul class="dropdown-menu">
-        <li class="active"><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-        <li class="active"><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
-      </ul>
+    <li class="menu-header">
+      <Link href="/dashboard">Dashboard</Link>
+    </li>
+    <li class="menu-header">
+      <Link href="/sales">Penjualan</Link>
     </li>
     <li class="menu-header">Starter</li>
     <li class="nav-item dropdown active'">
@@ -145,5 +143,5 @@
 </template>
 
 <script setup>
-
+import { Link } from '@inertiajs/inertia-vue3';
 </script>
