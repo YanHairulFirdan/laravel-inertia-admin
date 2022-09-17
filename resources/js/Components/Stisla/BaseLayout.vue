@@ -2,8 +2,8 @@
   <div class="main-wrapper">
     <Head title="Base layout"/>
     <div class="navbar-bg"></div>
-    <Navbar></Navbar>
-    <div class="main-sidebar sidebar-style-2">
+    <Navbar v-if="! canLogin"></Navbar>
+    <div v-if="! canLogin" class="main-sidebar sidebar-style-2">
       <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
           <a href="index.html">Stisla</a>
@@ -31,12 +31,22 @@
     </footer>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { onMounted } from "@vue/runtime-core";
 import Sidebar from "./Sidebar.vue";
 import Navbar from "./Navbar.vue";
 import { asset } from "@/functions";
+import { usePage } from "@inertiajs/inertia-vue3";
+import { computed } from "@vue/reactivity";
+import { PageProps } from "@inertiajs/inertia"
 
+interface Props extends PageProps{
+  canLogin: Boolean;
+  canRegister: Boolean;
+}
+const props = computed<Props>(() => usePage<Props>().props.value)
+
+const canLogin = computed<Boolean>(() => props.value.canLogin)
 onMounted(() => {
   const stislaScript = document.createElement("script");
   stislaScript.setAttribute("src", asset("stisla-master/assets/js/stisla.js"));
