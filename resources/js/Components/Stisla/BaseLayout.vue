@@ -1,6 +1,5 @@
 <template>
   <div class="main-wrapper">
-    <Head title="Base layout"/>
     <div class="navbar-bg"></div>
     <Navbar v-if="! canLogin"></Navbar>
     <div v-if="! canLogin" class="main-sidebar sidebar-style-2">
