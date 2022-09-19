@@ -40,8 +40,19 @@ example :
     </BaseLayout>
 </template>
 
+<!-- for composition api -->
 <script setup>
 import { Head } from "@inertiajs/inertia-vue3";
+</script>
+<!-- for option api -->
+<script>
+import { Head } from "@inertiajs/inertia-vue3";
+
+export default {
+  components: {
+    Head,
+  }
+}
 </script>
 ```
 
