@@ -18,7 +18,42 @@ To install this repository in your local machine after cloning finished, please 
 ## Requirements
 - PHP ^8.0.2
 - Laravel Framework ^9.19
+- Vue 3
 - Node js node-v^14
+
+## Available components
+- BaseComponent.vue
+- Modal.vue
+- BootstrapInput.vue
+- ValidationError.vue
+- BarChart.vue
+
+## How to create your page
+- make file your-page-name.vue inside resources/js/Pages
+- inside your template in your-page-name.vue, wrap your content inside <BaseLayout></BaseLayout>
+example : 
+```
+<template>
+    <Head title="your page"/>
+    <BaseLayout>
+        <!-- your content goes here... -->
+    </BaseLayout>
+</template>
+
+<script setup>
+import { Head } from "@inertiajs/inertia-vue3";
+</script>
+```
+
+```
+// in your controller
+public function index(){
+  return inertia('YourPage', [
+    //some props
+  ]);
+}
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
