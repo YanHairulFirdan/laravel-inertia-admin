@@ -6,6 +6,9 @@
     <li class="menu-header">
       <Link href="/sales">Penjualan</Link>
     </li>
+    <li class="menu-header" :class="{ 'active': $route().current('posts.*') }">
+      <Link :href="$route('posts.index')" class="nav-link">Post</Link>
+    </li>
     <li class="menu-header">Starter</li>
     <li class="nav-item dropdown active'">
       <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
