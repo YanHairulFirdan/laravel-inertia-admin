@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLanguageController;
 use App\Http\Controllers\SaleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -23,13 +25,21 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+Route::name('posts.')->prefix('posts')->middleware('auth')->group(function(){
+    Route::get('/', [PostController::class, 'index'])->name('index');
+    Route::post('/', [PostController::class, 'store'])->name('store');
+    Route::get('/{post}', [PostController::class, 'show'])->name('show');
+    Route::get('/{post}/edit', [PostController::class, 'edit'])->name('edit');
+    Route::put('/{post}', [PostController::class, 'update'])->name('update');
+    Route::get('/{post}/available-laguages', [PostLanguageController::class, 'index'])->name('language.index');
+    Route::post('/{post}/laguages', [PostLanguageController::class, 'store'])->name('language.store');
+});
 
-Route::prefix('sales')->name('sales.')->group(function () {
+Route::prefix('sales')->name('sales.')->middleware('auth')->group(function () {
     Route::get('/', [SaleController::class, 'index'])->name('index');
     Route::post('/', [SaleController::class, 'store'])->name('store');
 });
-// ->middleware(['auth', 'verified'])
 Route::get('/modal', function () {
     return Inertia::render('TestModal');
 });
