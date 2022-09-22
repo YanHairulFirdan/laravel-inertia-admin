@@ -23,13 +23,14 @@ namespace App\Models{
  * @property \App\Enums\InvoiceType $type
  * @property int $total_price it will stores result from base_price multiply by amount
  * @property string $transaction_date
- * @property int|null $created_at
- * @property int|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \App\QueryBuilders\InvoiceQueryBuilder|Invoice expensesThisMonth()
  * @method static \App\QueryBuilders\InvoiceQueryBuilder|Invoice expensesThisYear()
  * @method static \Database\Factories\InvoiceFactory factory(...$parameters)
  * @method static \App\QueryBuilders\InvoiceQueryBuilder|Invoice monthlyExpenses()
  * @method static \App\QueryBuilders\InvoiceQueryBuilder|Invoice monthlySales()
+ * @method static \App\QueryBuilders\InvoiceQueryBuilder|Invoice monthlySalesDataChart()
  * @method static \App\QueryBuilders\InvoiceQueryBuilder|Invoice newModelQuery()
  * @method static \App\QueryBuilders\InvoiceQueryBuilder|Invoice newQuery()
  * @method static \App\QueryBuilders\InvoiceQueryBuilder|Invoice query()
@@ -56,6 +57,53 @@ namespace App\Models{
  * @method static \App\QueryBuilders\InvoiceQueryBuilder|Invoice yearlySale()
  */
 	class Invoice extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Language
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $locale
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Post[] $posts
+ * @property-read int|null $posts_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Language newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Language newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Language query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Language whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Language whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Language whereLocale($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Language whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Language whereUpdatedAt($value)
+ */
+	class Language extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Post
+ *
+ * @property int $id
+ * @property array $title
+ * @property array $content
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Language[] $languages
+ * @property-read int|null $languages_count
+ * @method static \Database\Factories\PostFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereUpdatedAt($value)
+ */
+	class Post extends \Eloquent {}
 }
 
 namespace App\Models{
