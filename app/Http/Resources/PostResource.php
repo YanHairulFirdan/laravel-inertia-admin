@@ -26,9 +26,7 @@ class PostResource extends JsonResource
             'title' => $post->title ?? '',
             'content' => $post->content ?? '',
             'selected_language' => $language,
-            $this->mergeWhen($post->relationLoaded('languages'),[
-                'languages' => $post->languages,
-            ])
+            'languages' => $this->whenLoaded('languages'),
         ];
     }
 }
