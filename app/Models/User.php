@@ -45,10 +45,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function password()
+    public function password() : Attribute
     {
         return Attribute::make(
-            set: fn ($password) => Hash::make($password),
+            get: fn ($value) => $value,
+            set: fn ($value) => bcrypt($value),
         );
     }
 }
