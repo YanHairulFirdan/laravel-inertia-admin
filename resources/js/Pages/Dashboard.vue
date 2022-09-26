@@ -2,7 +2,7 @@
   <base-layout title="Dashboard">
     <!-- <div class="row"> -->
     <Head title="Dashboard"></Head>
-    <TransitionGroup name="card" tag="div" class="row">
+    <!-- <TransitionGroup name="card" tag="div" class="row">
       <div class="col-12 col-sm-6 col-md-4" :key="1">
         <div class="card">
           <div class="card-body">
@@ -106,7 +106,7 @@
       </div>
     </div>
     <div class="row">
-    </div>
+    </div> -->
   </base-layout>
 </template>
 
@@ -116,7 +116,7 @@ import { computed, reactive } from "@vue/runtime-core";
 import BarChart from "../Components/UI/Charts/BarChart.vue";
 import YearlyInvoice from "../../ts/interfaces/YearlyInvoice";
 import MonthlyInvoice from "../../ts/interfaces/MonthlyInvoice";
-import { datachartMapper } from "../../ts/functions";
+// import { datachartMapper } from "../../ts/functions";
 
 interface Prop {
   salesThisMonth: string;
@@ -147,7 +147,7 @@ const monthNamesFromSales = computed(() => {
   return props.monthlySales.map((sale) => sale.month);
 });
 const monthlySalesDataSet = computed(() => {
-  return datachartMapper(props.monthlySales, "Penjualan bulanan");
+  // return datachartMapper(props.monthlySales, "Penjualan bulanan");
 });
 
 const yearlySales = computed(() => {
@@ -189,7 +189,7 @@ const yearFromExpenses = computed(() => {
 });
 
 const yearlySalesDataSet = computed(() => {
-  return datachartMapper(props.yearlySales, "Penjualan tahunan");
+  // return datachartMapper(props.yearlySales, "Penjualan tahunan");
 });
 </script>
 
