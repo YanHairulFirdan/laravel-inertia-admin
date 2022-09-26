@@ -87,8 +87,8 @@ namespace App\Models{
  * App\Models\Post
  *
  * @property int $id
- * @property array $title
- * @property array $content
+ * @property string $title
+ * @property string $content
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Language[] $languages
